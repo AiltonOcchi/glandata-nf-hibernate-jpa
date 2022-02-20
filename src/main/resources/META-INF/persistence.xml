@@ -14,7 +14,7 @@
 			<property name="javax.persistence.jdbc.password" value="jdbc"/><!-- Senha de acesso ao b -->
 			
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/><!-- DB Dialect -->
-			<property name="hibernate.hbm2ddl.auto" value="create" /> <!-- update / create / create-drop -->
+			<property name="hibernate.hbm2ddl.auto" value="update" /> <!-- update / create / create-drop -->
 			<property name="hibernate.show_sql" value="true"/><!-- Exibe o SQL no console -->
 			<property name="hibernate.format_sql" value="true"/><!-- Formata o SQL no console -->
 			
