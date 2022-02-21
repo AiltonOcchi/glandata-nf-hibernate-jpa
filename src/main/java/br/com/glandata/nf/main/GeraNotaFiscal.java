@@ -38,7 +38,6 @@ public class GeraNotaFiscal {
 		notaFiscal.adicionarItem(new ItemNotaFiscal(2, notaFiscal, produto1));
 		notaFiscal.adicionarItem(new ItemNotaFiscal(1, notaFiscal, produto3));
 		notaFiscal.adicionarItem(new ItemNotaFiscal(4, notaFiscal, produto2));
-		
 		notaFiscal.calculaTotalNotaFiscal();
 		
 		notaFiscalDao.cadastrar(notaFiscal);

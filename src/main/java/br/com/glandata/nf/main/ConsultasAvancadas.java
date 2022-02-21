@@ -28,10 +28,10 @@ public class ConsultasAvancadas {
 		List<RelatorioFaturamentoVo> relatorio = notFiscalDao.relatorioDeFaturamento();
 		
 		System.out.println("\n\n################ RELATÓRIO DE VENDAS ###############");
-		System.out.println("PRODUTO \t\tQTD VENDIDA \tÚltima Venda");
+		System.out.println("PRODUTO \t\t\tQTD VENDIDA \t\tÚltima Venda");
 		
 		for (RelatorioFaturamentoVo result : relatorio) {
-			System.out.println(result.getNomeProduto()+ "\t\t"+result.getQuantidadeVendida()+ "\t\t"+result.getDataUltimaCompra());
+			System.out.println(result.getNomeProduto()+ "\t\t\t\t"+result.getQuantidadeVendida()+ "\t\t\t"+result.getDataUltimaCompra());
 		}
 		
 		// IMPRIME LISTA PELO NAMED QUERY

@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,7 +47,7 @@ public class NotaFiscal {
 	private LocalDate data = LocalDate.now();
 
 	@Getter @Setter
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Cliente cliente;
 	
 	@Getter @Setter

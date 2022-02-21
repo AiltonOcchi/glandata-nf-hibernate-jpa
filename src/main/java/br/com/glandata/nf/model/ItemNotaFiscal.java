@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -44,11 +45,11 @@ public class ItemNotaFiscal {
 	private Integer quantidade;
 	
 	@Getter @Setter
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private NotaFiscal notaFiscal;
 	
 	@Getter @Setter
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Produto produto;
 
 }
