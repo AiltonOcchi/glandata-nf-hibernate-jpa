@@ -9,12 +9,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+@NamedQuery(
+		name = "Produto.produtosPorCategoria",
+		query = "SELECT p FROM Produto p WHERE p.categoria.nome = :nome"
+		)
 @Table(name = "produtos")
 public class Produto {
 	
