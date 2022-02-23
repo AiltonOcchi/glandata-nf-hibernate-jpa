@@ -39,6 +39,12 @@ public class NotaFiscalDao {
 		
 		return em.createQuery(jpql, RelatorioFaturamentoVo.class).getResultList();
 	}
+	
+	public NotaFiscal buscaNotaFiscalComCliente(Long id) {
+		return em.createQuery("SELECT nf FROM NotaFiscal nf JOIN FETCH nf.cliente WHERE nf.id = : id", NotaFiscal.class)
+				.setParameter("id", id)
+				.getSingleResult();
+	}
 
 }
 
