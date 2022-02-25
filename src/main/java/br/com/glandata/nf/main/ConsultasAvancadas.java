@@ -39,6 +39,12 @@ public class ConsultasAvancadas {
 		System.out.println("\n#########RELATORIO DE PRODUTOS POR CATEGORIA#######");
 		produtosPorNomeDaCategoria.forEach(p -> System.out.println(p.getNome()));
 		
+		
+		List<Produto> produtosPorParametro = produtoDao.buscarPorParametros(null, null, null, null);
+		
+		System.out.println(produtosPorParametro);
+		
+		
 		em.close();
 
 	}

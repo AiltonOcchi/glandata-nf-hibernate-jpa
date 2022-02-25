@@ -51,6 +51,8 @@ public class ItemNotaFiscal {
 	@Getter @Setter
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Produto produto;
+	
+	
 
 }
 
