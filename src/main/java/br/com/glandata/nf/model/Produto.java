@@ -21,7 +21,7 @@ import lombok.Setter;
 @Entity
 @NamedQuery(
 		name = "Produto.produtosPorCategoria",
-		query = "SELECT p FROM Produto p WHERE p.categoria.nome = :nome"
+		query = "SELECT p FROM Produto p WHERE p.categoria.id.nome = :nome"
 		)
 @Table(name = "produtos")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -62,13 +62,6 @@ public class Produto {
 	@Getter @Setter
 	@Column(name = "data_cadastro")
 	private LocalDate dataCadastro = LocalDate.now();
-
-	@Override
-	public String toString() {
-		return "Produto [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", preco=" + preco + ", dataCadastro=" + dataCadastro + "]";
-	}
-	
-	
 
 }
 

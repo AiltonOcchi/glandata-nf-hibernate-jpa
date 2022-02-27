@@ -1,13 +1,8 @@
 package br.com.glandata.nf.model;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
-
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Table(name = "categorias")
@@ -17,21 +12,17 @@ public class Categoria {
 	}
 
 	public Categoria(String nome) {
-		this.nome = nome;
+		this.id = new CategoriaId(nome, "CATEGORIA");
 	}
-
-	public Categoria(Long id) {
-		this.id = id;
+	
+	public String getNome() {
+		return this.id.getNome();
 	}
+	
+	@EmbeddedId
+	private CategoriaId id;
 
-	@Getter	@Setter
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
-	@Getter @Setter
-	private String nome;
-
+	
 }
 
 

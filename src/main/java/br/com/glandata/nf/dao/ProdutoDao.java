@@ -56,7 +56,7 @@ public class ProdutoDao {
 		String jpql = "SELECT p FROM Produto p WHERE 1=1";
 		
 		if (!Strings.isNullOrEmpty(nomeProduto))jpql += "AND LOWER(p.nome) LIKE :nomeProduto ";
-		if (!Strings.isNullOrEmpty(nomeCategoria))jpql += "AND LOWER(p.categoria.nome) LIKE :nomeCategoria ";
+		if (!Strings.isNullOrEmpty(nomeCategoria))jpql += "AND LOWER(p.categoria.categorianome) LIKE :nomeCategoria ";
 		if (!Strings.isNullOrEmpty(valorInicial))jpql += "AND p.preco >= :valorInicial ";
 		if (!Strings.isNullOrEmpty(valorMaximo))jpql += "AND p.preco <= :valorMaximo ";
 				
