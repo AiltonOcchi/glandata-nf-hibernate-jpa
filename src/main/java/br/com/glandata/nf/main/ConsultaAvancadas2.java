@@ -1,6 +1,5 @@
 package br.com.glandata.nf.main;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -18,8 +17,8 @@ public class ConsultaAvancadas2 {
 		
 		String nomeProduto = "Camisa";
 		String nomeCategoria = "VESTUARIO";
-		var valorInicial = new BigDecimal("50");
-		var valorMaximo = new BigDecimal("500");
+		var valorInicial = "50";
+		var valorMaximo = "500";
 		
 		List<Produto> produtosPorParametro = produtoDao.buscarPorParametros(nomeProduto, nomeCategoria, valorInicial, valorMaximo);
 		

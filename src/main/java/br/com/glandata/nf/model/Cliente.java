@@ -1,5 +1,6 @@
 package br.com.glandata.nf.model;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,8 +22,7 @@ public class Cliente {
 	}
 	
 	public Cliente(String nome, String cpf) {
-		this.nome = nome;
-		this.cpf = cpf;
+		this.dadosPessoais = new DadosPessoais(nome, cpf);
 	}
 
 	@Getter @Setter
@@ -30,11 +30,13 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Getter @Setter
-	private String nome;
+	@Getter
+	@Embedded
+	private DadosPessoais dadosPessoais;
 	
-	@Getter @Setter
-	private String cpf;
-
+	public String getNome() {
+		return this.dadosPessoais.getNome();
+	}
+	
 }
 

@@ -51,21 +51,21 @@ public class ProdutoDao {
 				.getResultList();
 	}
 	
-	public List<Produto> buscarPorParametros(String nomeProduto, String nomeCategoria, BigDecimal valorInicial, BigDecimal valorMaximo) {
+	public List<Produto> buscarPorParametros(String nomeProduto, String nomeCategoria, String valorInicial, String valorMaximo) {
 		
 		String jpql = "SELECT p FROM Produto p WHERE 1=1";
 		
 		if (!Strings.isNullOrEmpty(nomeProduto))jpql += "AND LOWER(p.nome) LIKE :nomeProduto ";
 		if (!Strings.isNullOrEmpty(nomeCategoria))jpql += "AND LOWER(p.categoria.nome) LIKE :nomeCategoria ";
-		if (!Strings.isNullOrEmpty(valorInicial.toString()))jpql += "AND p.preco >= :valorInicial ";
-		if (!Strings.isNullOrEmpty(valorMaximo.toString()))jpql += "AND p.preco <= :valorMaximo ";
+		if (!Strings.isNullOrEmpty(valorInicial))jpql += "AND p.preco >= :valorInicial ";
+		if (!Strings.isNullOrEmpty(valorMaximo))jpql += "AND p.preco <= :valorMaximo ";
 				
 		TypedQuery<Produto> query = em.createQuery(jpql, Produto.class);
 		
 		if (!Strings.isNullOrEmpty(nomeProduto)) query.setParameter("nomeProduto", "%"+nomeProduto.toLowerCase()+"%");
 		if (!Strings.isNullOrEmpty(nomeCategoria)) query.setParameter("nomeCategoria", "%"+nomeCategoria.toLowerCase()+"%");
-		if (!Strings.isNullOrEmpty(valorInicial.toString())) query.setParameter("valorInicial", valorInicial);
-		if (!Strings.isNullOrEmpty(valorMaximo.toString())) query.setParameter("valorMaximo", valorMaximo);
+		if (!Strings.isNullOrEmpty(valorInicial)) query.setParameter("valorInicial", valorInicial);
+		if (!Strings.isNullOrEmpty(valorMaximo)) query.setParameter("valorMaximo", valorMaximo);
 		
 		return query.getResultList();
 		

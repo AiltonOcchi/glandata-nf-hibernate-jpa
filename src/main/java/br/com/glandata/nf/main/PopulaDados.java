@@ -9,6 +9,7 @@ import br.com.glandata.nf.dao.ClienteDao;
 import br.com.glandata.nf.dao.NotaFiscalDao;
 import br.com.glandata.nf.dao.ProdutoDao;
 import br.com.glandata.nf.model.Categoria;
+import br.com.glandata.nf.model.Chinelo;
 import br.com.glandata.nf.model.Cliente;
 import br.com.glandata.nf.model.ItemNotaFiscal;
 import br.com.glandata.nf.model.NotaFiscal;
@@ -25,6 +26,9 @@ public class PopulaDados {
 		EntityManager em = JPAUtil.getEntityManager();
 		em.getTransaction().begin();
 		
+		
+			
+		
 		ClienteDao clienteDao = new ClienteDao(em);
 		CategoriaDao categoriaDao = new CategoriaDao(em);
 		ProdutoDao produtoDao = new ProdutoDao(em);
@@ -34,10 +38,23 @@ public class PopulaDados {
 		Categoria categoria2 = new Categoria("TELEVISORES");
 		Categoria categoria3 = new Categoria("VESTUARIO");
 		Categoria categoria4 = new Categoria("GAMES");
+		
 		categoriaDao.cadastrar(categoria1);
 		categoriaDao.cadastrar(categoria2);
 		categoriaDao.cadastrar(categoria3);
-		categoriaDao.cadastrar(categoria4);
+		categoriaDao.cadastrar(categoria4);	
+		
+		Chinelo chinelo =  new Chinelo();
+		chinelo.setCategoria(categoria3);
+		chinelo.setMarca("Havainas");
+		chinelo.setNome("Sandalia Havaianas");
+		chinelo.setDescricao("Chinelo de Dedo");
+		chinelo.setTamanho(40);
+		chinelo.setPreco(new BigDecimal("90.00"));
+		
+		em.persist(chinelo);
+		
+		
 		
 		Cliente cliente1 =  new Cliente("Douglas", "456789");
 		Cliente cliente2 =  new Cliente("Sandra", "789456");
@@ -76,6 +93,7 @@ public class PopulaDados {
 		produtoDao.cadastrar(produto11);
 		produtoDao.cadastrar(produto12);
 		produtoDao.cadastrar(produto13);
+		
 		
 		NotaFiscal notaFiscal1 = new NotaFiscal(cliente1);
 		notaFiscal1.adicionarItem(new ItemNotaFiscal(1, notaFiscal1, produto1));
